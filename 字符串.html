@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+        <p id="demo5"></p>
+        <p id="demo6"></p>
+        <p id="demo7"></p>
+        <p id="demo8"></p>
+        <p id="demo9"></p>
+        <p id="demo10"></p>
+        <p id="demo11"></p>
+        <p id="demo12">所有字符串方法都会返回新字符串。它们不会修改原始字符串。</p>
+        <p id="demo13">正式地说：字符串是不可变的：字符串不能更改，只能替换。</p>
+        <p id="demo14"></p>
+        <p id="demo15"></p>
+        <button onclick="mysplit()">试一试</button>
+        <p id="demo16"></p>
+        <p id="demo17"></p>
+        <p id="demo18"></p>
+        <p id="demo19"></p>
+        <p id="demo20"></p>
+        <p id="demo21"></p>
+        <p id="demo22"></p>
+        <p id="demo23"></p>
+        <p id="demo24"></p>
+        <p id="demo25"></p>
+        <script>
+            var str="The full name of Juicy is Juicy Lee."
+            var pos1=str.indexOf("Juicy");
+            var pos2=str.lastIndexOf("Juicy");
+            var pos3=str.indexOf("juicy");
+            document.getElementById("demo1").innerHTML=pos1;
+            document.getElementById("demo2").innerHTML=pos2;
+            document.getElementById("demo3").innerHTML=pos3;
+
+            var str1="Apple,Banana,Mango";
+            var res1=str1.slice(0,13);
+            var res2=str1.slice(-5,-1);
+            var res3=str1.slice(-5);
+            var res4=str1.substring(6,13);
+            var res5=str1.substr(6,7);
+
+            document.getElementById("demo4").innerHTML=res1;
+            document.getElementById("demo5").innerHTML=res2;
+            document.getElementById("demo6").innerHTML=res3;
+            document.getElementById("demo7").innerHTML=res4;
+            document.getElementById("demo8").innerHTML=res5;
+
+            var str2="Please visit Microsoft and Microsoft!";
+            var n=str2.replace(/Microsoft/g,"Tencent");
+            document.getElementById("demo9").innerHTML=n;
+
+            var text1="HELLO WOrld!";
+            var text2=text1.toLowerCase();
+            document.getElementById("demo10").innerHTML=text2;
+
+            var text3="Hello";
+            var text4="World!";
+            var text5=text3.concat(" ",text4);
+            document.getElementById("demo11").innerHTML = text5;
+
+            var str3="     删除两边空白符        ";
+            alert(str3.trim());
+
+            var str4="HELLO WORLD";
+            document.getElementById("demo14").innerHTML=str4.charAt(0);
+            document.getElementById("demo15").innerHTML=str4.charCodeAt(0);
+
+            function mysplit(){
+                var txt = "a,b,c,d,e";
+                var arr = txt.split(",");
+                document.getElementById("demo16").innerHTML = arr[0];
+            }
+
+            var x=10;
+            var y=20;
+            var z="30";
+            var result=x+y+z;
+            document.getElementById("demo17").innerHTML=result;
+
+            var myNumber=128;
+            document.getElementById("demo18").innerHTML=myNumber.toString(16);
+
+            var x = 123;
+            document.getElementById("demo19").innerHTML=x.toString();
+
+            document.getElementById("demo20").innerHTML=(123).valueOf();
+            var x="250";
+            var y=x.valueOf();
+            document.getElementById("demo21").innerHTML=typeof(y);
+
+
+        </script>
+    </body>
+</html>
