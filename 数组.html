@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo2"></p>
+        <ul>
+            <li id="demo1"></li>
+            <li id="demo3"></li>
+            <li id="demo4"></li>
+        </ul>
+        <p>
+            JavaScript 变量可以是对象。数组是特殊类型的对象。正因如此，您可以在相同数组中存放不同类型的变量。
+        </p>
+        <p id="demo5"></p>
+        <p id="demo6"></p>
+        <p id="demo7"></p>
+        <p id="demo8"></p>
+        <p id="demo9"></p>
+        <p id="demo10"></p>
+        <p id="demo11"></p>
+        <p id="demo12"></p>
+        <p id="demo13"></p>
+        <p id="demo14"></p>
+        <p id="demo15"></p>
+        <p id="demo16"></p>
+        <p id="demo17"></p>
+        <p id="demo18"></p>
+        <p id="demo19"></p>
+        <p id="demo20"></p>
+        <p id="demo21"></p>
+        <p id="demo22"></p>
+        <p id="demo23"></p>
+        <p id="demo24"></p>
+        <p id="demo25"></p>
+        <p id="demo26"></p>
+        <p id="demo27"></p>
+        <p id="demo28"></p>
+        <p id="demo29"></p>
+        <p id="demo30"></p>
+        <p id="demo31"></p>
+        <p id="demo32"></p>
+        <p id="demo33"></p>
+        <script>
+            var drinks=["Coffee","Tea","Milk","Frappuccino"];
+            var name=drinks[0];
+            drinks[0]="Espresso";
+            var newname=drinks[0];
+            var num=drinks.length;
+            
+            document.getElementById("demo1").innerHTML = name;
+            document.getElementById("demo2").innerHTML = drinks;
+            document.getElementById("demo3").innerHTML = num;
+            drinks.sort();
+            document.getElementById("demo4").innerHTML = drinks;
+            
+            var text,dLen,i;
+            dLen=drinks.length;
+            text="<ul>";
+            for(i=0;i<dLen;i++){
+                text+="<li>"+drinks[i]+"</li>";
+            }
+            text+="</ul>";
+            
+            document.getElementById("demo5").innerHTML=text;
+
+            drinks.push("Lemonade");
+            drinks[drinks.length]="Oolong";
+            drinks[10]="Milkshake";
+            var text1="";
+            drinks.forEach(myFunc);
+            
+            function myFunc(value){
+                text1+=value+"<br/>";
+            }
+            document.getElementById("demo6").innerHTML=text1;
+
+            document.getElementById("demo7").innerHTML=Array.isArray(drinks);
+            
+            document.getElementById("demo8").innerHTML=drinks.toString();
+
+            document.getElementById("demo9").innerHTML=drinks.join("☕️");
+           
+            drinks.pop();
+            document.getElementById("demo10").innerHTML=drinks.join("☕️");
+            drinks.pop();
+            drinks.pop();
+            drinks.pop();
+            drinks.pop();
+            document.getElementById("demo11").innerHTML=drinks.join("☕️");
+
+            drinks.shift();
+            document.getElementById("demo12").innerHTML=drinks.join("☕️");
+
+            drinks.unshift("Espresso");
+            document.getElementById("demo13").innerHTML=drinks.join("☕️");
+
+            delete drinks[1];
+            document.getElementById("demo14").innerHTML=drinks.join("☕️");
+
+            drinks[1]="Frappuccino";
+            document.getElementById("demo15").innerHTML=drinks.join("☕️");
+
+            drinks.splice(2,0,"Mojito","Tequila");
+            document.getElementById("demo16").innerHTML=drinks.join("☕️");
+
+            drinks.splice(2,1);
+            document.getElementById("demo17").innerHTML=drinks.join("☕️");
+
+            var moredrinks=["Coke","Sprite"];
+            var newdrinks=drinks.concat(moredrinks);
+            document.getElementById("demo18").innerHTML=newdrinks.join("☕️");
+
+            newdrinks=drinks.slice(2,4);
+            document.getElementById("demo19").innerHTML=newdrinks.join("☕️");
+
+            document.getElementById("demo20").innerHTML=drinks.sort();
+
+            document.getElementById("demo21").innerHTML=drinks.reverse();
+            
+            function myArrayMax(arr){
+                return Math.max.apply(null,arr);
+            }
+
+            function myArrayMax1(arr){
+                var len=arr.length;
+                var max=-Infinity;
+                while(len--){
+                    if(arr[len]>max){
+                        max=arr[len];
+                    }
+                }
+                return max;
+            }
+            
+            var score=[97,98,100,99];
+            document.getElementById("demo22").innerHTML=myArrayMax1(score);
+
+            var cars=[
+                {type:"Volvo",year:2016},
+                {type:"Saab",year:2001},
+                {type:"BMW",year:2010}
+            ];
+            cars.sort(function(a,b){return a.year-b.year});
+            document.getElementById("demo23").innerHTML=cars[0].type+" "+cars[0].year;
+
+            var numbers1=[1,2,3,4,5];
+            var numbers2=numbers1.map(myMult);
+            function myMult(value,index,arr){
+                return value*2;
+            }
+            document.getElementById("demo23").innerHTML=numbers2;
+
+            numbers2=numbers1.filter(myFilt);
+            function myFilt(value,index,arr){
+                return value%2;
+            }
+            document.getElementById("demo24").innerHTML=numbers2;
+
+            function myRedu(total,value,index,arr){
+                return total+value;
+            }
+            numbers2=numbers1.reduce(myRedu);
+            document.getElementById("demo25").innerHTML=numbers2;
+
+            var allOver0=numbers1.every(myOver0);
+            function myOver0(value){
+                return value>0;
+            }
+            document.getElementById("demo26").innerHTML=allOver0;
+
+            var someOver0=numbers1.some(myOver0);
+            document.getElementById("demo27").innerHTML=someOver0;
+
+            var E=drinks.indexOf("Espresso");
+            document.getElementById("demo28").innerHTML=E;
+
+            var first=numbers1.find(myFind);
+            function myFind(value,index,arr){
+                return value%3==0;
+            }
+            document.getElementById("demo29").innerHTML=first;
+
+            first=numbers1.findIndex(myFind);
+            document.getElementById("demo30").innerHTML=first;
+
+            //console.log(text);
+            
+        </script>
+    </body>
+</html>
