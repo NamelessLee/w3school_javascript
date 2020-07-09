@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="p01">The best  things in life are free!</p>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+        <p id="demo5"></p>
+        <p id="demo6"></p>
+        <p id="demo7"></p>
+        <p id="demo8"></p>
+        <script>
+            text=document.getElementById("p01").innerHTML;
+            document.getElementById("demo1").innerHTML=/t  t/.test(text);
+            document.getElementById("demo2").innerHTML=/e/.exec(text);
+
+        </script>
+    </body>
+</html>
