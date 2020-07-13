@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input id="id1" type="number" min="0" max="100">
+        <button onclick="myFunction()">OK</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var txt = "";
+                if(document.getElementById("id1").validity.rangeOverflow) {
+                    txt="值太大";
+                }
+                else if(document.getElementById("id1").validity.rangeUnderflow) {
+                    txt="值太小";
+                }
+                else if(document.getElementById("id1").value=="") {
+                    alert("必须填写数字！");
+                    return false;
+                }
+                document.getElementById("demo").innerHTML = txt;
+            }
+        </script>
+    </body>
+</html>

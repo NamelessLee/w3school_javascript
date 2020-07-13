@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo"></p>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <script>
+            var obj=JSON.parse('{"name":"Bill", "age":62, "city":"Seatle"}');
+            document.getElementById("demo").innerHTML=obj.name;
+
+            var myJSON = JSON.stringify(obj);
+            document.getElementById("demo1").innerHTML=myJSON;
+
+            var person = {
+                firstName : "Juicy",
+                lastName : "Lee",
+                get fullName(){
+                    return this.firstName + " " + this.lastName;
+                }
+            };
+            document.getElementById("demo2").innerHTML=person.fullName;
+        </script>
+    </body>
+</html>

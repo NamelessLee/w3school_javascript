@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo"></p>
+        <p id="demo1"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+        <p id="demo5"></p>
+        <p id="demo6"></p>
+        <p id="demo7"></p>
+        <p id="demo8"></p>
+        <script>
+            var person = {
+                firstname:"Juicy",
+                lastname:"Lee",
+                age:19,
+                eyecolor:"black",
+                get fullName(){
+                    return this.firstname + " " + this.lastname;
+                },
+                get lang() {
+                    return this.fullName.toUpperCase();
+                },
+                set ag(ag){
+                    this.age = ag;
+                }
+            };
+
+            person.name = function() {
+                return this.firstname + " " + this.lastname;
+            }
+
+            var f="firstname";
+            var a="age";
+
+            document.getElementById("demo").innerHTML = person.firstname + " is forever " + person.age + " years old.";
+            document.getElementById("demo1").innerHTML = person[f] + " is forever " + person[a] + " years old.";
+        
+            person.nationality="Chinese";
+            delete person.nationality;
+            
+            var txt="";
+            for(x in person) {
+                txt += person[x];
+            }
+            document.getElementById("demo3").innerHTML = txt;
+
+            document.getElementById("demo4").innerHTML = "My name is " + person.name();
+            
+            document.getElementById("demo5").innerHTML = person.fullName;
+
+            document.getElementById("demo6").innerHTML = person.lang;
+
+            person.ag = 17;
+            document.getElementById("demo7").innerHTML = person.age;
+
+            Object.defineProperty(person,"resetAge",{set : function(value){this.age=value;}});
+            person.resetAge=0;
+            document.getElementById("demo8").innerHTML = person.age;
+
+
+        </script>
+    </body>
+</html>

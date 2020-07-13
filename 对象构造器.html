@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+        <p id="demo5"></p>
+        <script>
+            function Person(first, last, age, eye){
+                this.firstName = first;
+                this.lastName = last;
+                this.age = age;
+                this.eyeColor = eye;
+                this.name = function(){return this.firstName + " " + this.lastName;};
+                this.changeName = function(name){ this.firstName=name;};
+            }
+            
+            var myFriend = new Person("Gyoku","Mei",21,"black");
+            document.getElementById("demo1").innerHTML = " My Friend is " + myFriend.firstName + " " + myFriend.lastName;
+
+            myFriend.location = "Tokyo";
+            document.getElementById("demo2").innerHTML = " My Friend " + myFriend.firstName + " " + myFriend.lastName +" is in " + myFriend.location;
+
+            document.getElementById("demo3").innerHTML = myFriend.name();
+
+            myFriend.changeName("Yu");
+            document.getElementById("demo4").innerHTML = myFriend.name();
+
+            document.getElementById("demo5").innerHTML = "My friend is " + myFriend.fname();
+        </script>
+    </body>
+</html>
