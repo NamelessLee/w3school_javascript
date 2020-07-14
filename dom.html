@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        #container{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background: yellow;
+        }
+        #animate{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background: red;
+        }
+    </style>
     <body>
+        
         <div id="demo">
             <p class="p1">Heading 1.</p>
             <h1 id="demo2"></h1>
         </div>
         <p id="demo3"></p>
+        <p><button onclick="myMove()">单击我</button></p>
+        <div id="container">
+            <div id="animate"></div>
+        </div>
+
+        <h1 onclick="this.innerHTML='🦀️🦀️!'">请点击此文本！</h1>
+        <h1 onclick="changeText(this)">请点击此文本！</h1>
+        <div><button id="myBtn">单击我</button></div>
+        
+
+        <div>
+            <input type="text" id="fname" onchange="myFunction()">
+        </div>
+
+        <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color: azure; width:120px; height:20px;padding:40px;">请把鼠标移上来</div>
+        
+        <div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color: yellowgreen; width:120px; height:20px;padding:40px;">点击🖱️</div>
+        
+        <div><button id="myBtn1">单击我myBtn1</button></div>
+
+        <div><button id="myBtn2">单击我myBtn2</button></div>
+        <div><button onclick="removeHandler()" id="myBtn3 ">删除</button></div>
+
+        <p id="demo4"></p>
+        
         <script>
             var x=document.getElementById("demo");
             var y=x.getElementsByTagName("p");
@@ -16,6 +56,71 @@
 
             document.write(Date());
 
+            function myMove(){
+                var elem = document.getElementById("animate");
+                var pos = 0;
+                var id = setInterval(frame,5);
+                function frame(){
+                    if(pos==350) clearInterval(id);
+                    else {
+                        pos++;
+                        elem.style.top=pos+"px";
+                        elem.style.left=pos+"px";
+                    }
+                }
+            }
+
+            function changeText(id){
+                id.innerHTML="Hello:)";
+            }
+
+            document.getElementById("myBtn").onclick=myMove;
+
+            function myFunction(){
+                var x=document.getElementById("fname");
+                x.value=x.value.toUpperCase();
+            }
+
+            function mOver(obj){
+                obj.innerHTML="🦀️🦀️🍋";
+            }
+            function mOut(obj){
+                obj.innerHTML="请8🐭⌚️1⃣️⬆️来";
+            }
+
+            function mDown(obj){
+                obj.style.backgroundColor="beige";
+                obj.innerHTML="松开鼠标";
+            }
+
+            function mUp(obj){
+                obj.style.backgroundColor="yellowgreen";
+                obj.innerHTML="谢谢您";
+            }
+
+            document.getElementById("myBtn1").addEventListener("click",myAlert);
+            function myAlert(){
+                alert("Hello World!")
+            }
+            //why？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+            //document.getElementById("myBtn2").addEventListener("click",myFunc(5,7));
+
+            document.getElementById("myBtn2").addEventListener("click",function(){myFunc(5,7);});
+            function myFunc(a,b){
+                var result = a*b;
+                document.getElementById("demo4").innerHTML = result;
+            }
+
+            function removeHandler(){
+                document.getElementById("myBtn1").removeEventListener("click",myAlert);
+            }
+
+
+
+        
+        
+        
+        
         </script>
     </body>
 </html>

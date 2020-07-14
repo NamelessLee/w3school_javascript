@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <div id="div1">
+        <p id="p1">这是一个段落</p>
+        <p id="p2">这是另一个段落</p>
+        <p id="p3">这是要被替换的段落</p>
+    </div>
+
+    <script>
+        var para1 = document.createElement("p");
+        var node1 = document.createTextNode("这是新文本1。");
+        para1.appendChild(node1);
+
+        var element = document.getElementById("div1");
+        element.appendChild(para1);
+
+        var para2 = document.createElement("p");
+        var node2 = document.createTextNode("这是新文本2。");
+        para2.appendChild(node2);
+
+        document.getElementById("div1").insertBefore(para2,p2);
+
+        var parent = document.getElementById("div1");
+        var child = document.getElementById("p1");
+        parent.removeChild(child);
+
+        child = document.getElementById("p2");
+        child.parentNode.removeChild(child);
+
+        var para4 = document.createElement("p");
+        var node4 = document.createTextNode("这是替换的文本。");
+        para4.appendChild(node4);
+        var para3 = document.getElementById("p3");
+        parent.replaceChild(para4,para3);
+
+        var myCollection = document.getElementsByTagName("p");
+        var i;
+        for(i = 0; i < myCollection.length; i++){
+            myCollection[i].style.backgroundColor = "azure";
+        }
+    </script>
+</html>
